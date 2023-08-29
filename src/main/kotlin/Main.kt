@@ -4,10 +4,12 @@ import dev.kord.core.event.message.MessageCreateEvent
 import dev.kord.core.on
 import dev.kord.gateway.Intent
 import dev.kord.gateway.PrivilegedIntent
+import java.io.File
 import kotlin.random.Random
 
 suspend fun main() {
-    val kord = Kord("ODY0NjI2NDY2MzM0NDQxNDcy.Gap2uD.v9V78Nku0QxTLn9LfGEbq5IBEHbEKbi6EifYYw")
+    val token = File("src/main/resources/.token").readText()
+    val kord = Kord(token)
 
     kord.on<MessageCreateEvent> {
         if (message.author?.isBot != false) return@on
